@@ -8,6 +8,7 @@ io = require( 'socket.io')(http, {
     }
   });;
   const app = express();
+  app.use(express.static('./public'));
   var onlineUsers= [];
   io.engine.on("connection_error", (err) => {
     console.log(err.req);      // the request object
