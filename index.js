@@ -1,0 +1,32 @@
+const express = require('express')
+http = require('http') .Server(express);
+var port = 4000
+io = require( 'socket.io')(http, {
+    cors: {
+      origin: "*",
+      methods: ["GET", "POST"]
+    }
+  });;
+
+  var onlineUsers= [];
+io. on ('connection', function(socket) {
+//console. log ('A user connected' );
+socket.on("user_connected", (newUserId) => {
+    if (!onlineUsers.some((user) => user.userId === newUserId)) {  
+      // if user is not added before
+      onlineUsers.push({ userId: newUserId, socketId: socket.id });
+      console.log("new user is here!", onlineUsers);
+    }
+    // send all active users to new user
+   // console.log(onlineUsers)
+  });
+  socket.on("disconnect", () => {
+    onlineUsers = onlineUsers.filter((user) => user.socketId !== socket.id)
+    console.log("user disconnected", onlineUsers);
+    // send all online users to all users
+ //   console.log(onlineUsers)
+  });
+});
+http. listen(port,function() {
+console. log (`listening on *: PORT:${port}`);
+});
