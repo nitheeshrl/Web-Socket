@@ -1,9 +1,9 @@
 const express = require('express')
 http = require('http') .Server(express);
-var port =   5000
+var port =  process.env.PORT || 5000
 io = require( 'socket.io')(http, {
     cors: {
-      origin: "http://127.0.0.1:5500",
+      origin: "*",
       methods: ["GET", "POST"]
     }
   });;
