@@ -35,7 +35,7 @@ socket.on("user_connected", (newUserId) => {
   });
   
 });
-//app.listen(port, () => console.log(`Server started on PORT:${port}`))
+app.listen(4000, () => console.log(`Server started on PORT:${4000}`))
 http. listen(port,function() {
 console. log (`listening on *: PORT:${port}`);
 });
