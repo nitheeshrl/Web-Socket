@@ -8,7 +8,6 @@ io = require( 'socket.io')(http, {
     }
   });;
   const app = express();
-
   var onlineUsers= [];
   io.engine.on("connection_error", (err) => {
     console.log(err.req);      // the request object
@@ -36,7 +35,6 @@ socket.on("user_connected", (newUserId) => {
   
 });
 //app.listen(port, () => console.log(`Server started on PORT:${port}`))
-app.use(express.static('./public'));
 http. listen(port,function() {
 console. log (`listening on *: PORT:${port}`);
 });
