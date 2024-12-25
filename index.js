@@ -3,11 +3,11 @@ http = require('http') .Server(express);
 var port =   5000
 io = require( 'socket.io')(http, {
     cors: {
-      origin: "*",
+      origin: "http://127.0.0.1:5500",
       methods: ["GET", "POST"]
     }
   });;
-
+  const app = express();
   var onlineUsers= [];
   io.engine.on("connection_error", (err) => {
     console.log(err.req);      // the request object
