@@ -1,6 +1,6 @@
 const express = require('express')
 http = require('http') .Server(express);
-var port = 4000
+var port =  process.env.PORT || 4000
 io = require( 'socket.io')(http, {
     cors: {
       origin: "*",
