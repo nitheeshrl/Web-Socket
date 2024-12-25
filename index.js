@@ -1,6 +1,6 @@
 const express = require('express')
 http = require('http') .Server(express);
-var port =  process.env.PORT || 5000
+var port =  process.env.PORT || 3000
 io = require( 'socket.io')(http, {
     cors: {
       origin: "*",
@@ -34,7 +34,7 @@ socket.on("user_connected", (newUserId) => {
   });
   
 });
-app.listen(port, () => console.log(`Server started on PORT:${port}`))
-/*http. listen(port,function() {
+//app.listen(port, () => console.log(`Server started on PORT:${port}`))
+http. listen(port,function() {
 console. log (`listening on *: PORT:${port}`);
-});*/
+});
